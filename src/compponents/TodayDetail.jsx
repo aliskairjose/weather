@@ -19,7 +19,7 @@ export default function TodayDetail() {
     setCurrent(curr)
     setAstro(forecast?.forecastday[0]?.astro)
     setLocation(loc)
-  }, []);
+  }, [forecastContext]);
 
   return (
     <>

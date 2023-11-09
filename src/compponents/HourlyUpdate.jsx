@@ -1,10 +1,14 @@
-import { useContext, useRef } from "react";
+import { useContext, useEffect, useState } from "react";
 import SmallCard from "./cards/SmallCard";
 import { ForecastContext } from "../App";
 
 export default function HourlyUpdate() {
   const forecastContext = useContext(ForecastContext);
-  const hours = useRef(forecastContext.forecast.forecastday[0].hour)
+  const [weather, setWeather] = useState(null)
+
+  useEffect(()=>{
+    setWeather(forecastContext.forecast.forecastday[0].hour)
+  }, [forecastContext])
 
   return (
     <>
@@ -19,7 +23,7 @@ export default function HourlyUpdate() {
       </div>
 
       <div className="grid grid-flow-col grid-cols-auto mt-8 gap-2 overflow-x-auto">
-        {hours.current?.map((d, index) => (
+        {weather?.map((d, index) => (
           <SmallCard data={{weather:d}} key={index} />
         ))}
       </div>

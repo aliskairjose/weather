@@ -1,11 +1,15 @@
-import { useContext, useRef } from "react";
+import { useContext, useEffect, useState } from "react";
 import SmallCard from "./cards/SmallCard";
 import { ForecastContext } from "../App";
 
 export default function WeeklyForecast() {
   const forecastContext = useContext(ForecastContext);
-  const forecastday = useRef(forecastContext.forecast.forecastday)
-  
+  const [forecast, setForecast] = useState(null);
+
+  useEffect(() => {
+    setForecast(forecastContext.forecast.forecastday)
+  }, [forecastContext]);
+
   return (
     <>
       <div className="w-full text-center">
@@ -18,8 +22,8 @@ export default function WeeklyForecast() {
         </p>
       </div>
       <div className="grid grid-flow-col grid-cols-auto mt-8 gap-2 overflow-x-auto">
-        {forecastday.current?.map((d, index) => (
-          <SmallCard data={{weather:d.day, date: d.date}} key={index} />
+        {forecast?.map((f, index) => (
+          <SmallCard data={{ weather: f.day, date: f.date }} key={index} />
         ))}
       </div>
     </>
