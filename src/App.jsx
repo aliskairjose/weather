@@ -3,7 +3,7 @@ import "./App.css";
 import HourlyUpdate from "./compponents/HourlyUpdate";
 import TodayDetail from "./compponents/TodayDetail";
 import WeeklyForecast from "./compponents/WeeklyForecast";
-import { geoLocation, forecastWeather } from "./providers/api";
+import { forecastWeather } from "./providers/api";
 import Footer from "./compponents/Footer";
 
 export const ForecastContext = createContext();
@@ -13,9 +13,11 @@ function App() {
 
   useEffect(() => {
     const fecthData = async () => {
-      const geoLoc = await geoLocation();
-      const res = await forecastWeather({q: geoLoc?.city, dt: '2023-11-08'})
-      setData(res);
+      navigator.geolocation.getCurrentPosition(async (position) => {
+        const pos = `${position.coords.latitude},${position.coords.longitude}`;
+        const res = await forecastWeather({ q: pos });
+        setData(res);
+      });
     };
     fecthData();
   }, []);

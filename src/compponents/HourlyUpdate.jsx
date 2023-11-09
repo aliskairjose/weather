@@ -1,24 +1,17 @@
-import { useContext, useEffect, useRef, useState } from "react";
+import { useContext, useRef } from "react";
 import SmallCard from "./cards/SmallCard";
 import { ForecastContext } from "../App";
 
 export default function HourlyUpdate() {
   const forecastContext = useContext(ForecastContext);
   const hours = useRef(forecastContext.forecast.forecastday[0].hour)
-  // const [hours, setHours] = useState(null);
-  // const [date, setDate] = useState(null)
- 
-  // useEffect(() => {
-  //   setHours(forecastContext.forecast.forecastday[0].hour);
-  //   setDate(forecastContext.forecast.forecastday[0].date)
-  // }, []);
 
   return (
     <>
       <div className="w-full text-center">
         <h1>Hourly Update</h1>
         <p className="text-gray-500 w-8/12 mx-auto">
-          The 'Recent Search Weather' section displays the latest weather
+          The `Recent Search Weather` section displays the latest weather
           information for the cities you have recently searched. Stay up-to-date
           with the weather conditions of your preferred cities with this
           section.

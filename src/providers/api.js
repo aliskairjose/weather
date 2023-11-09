@@ -13,12 +13,6 @@ const instance = axios.create({
   },
 });
 
-export const geoLocation = async () => {
-  return await axios
-    .get("http://ip-api.com/json")
-    .then((res) => res.data)
-    .catch(console.error);
-};
 
 /**
  *
