@@ -26,9 +26,9 @@ export default function TodayDetail() {
     <>
       <Title title='Today Weather Details'/>
 
-      <div className="flex lg:flex-row flex-col mt-8 gap-5">
+      <div className="flex lg:flex-row flex-col mt-8 lg:gap-5 gap-3">
         <div className="lg:w-1/3 w-full">
-          <div className="flex flex-col md:py-0 pb-4 justify-center gap-8 rounded-2xl bg-blue-50 box-border h-full">
+          <div className="flex flex-col lg:py-0 py-6 justify-center gap-8 rounded-2xl bg-blue-50 box-border h-full">
             <div className="flex justify-between place-items-center px-10">
               <h2 className="font-semibold md:text-3xl text-xl">{location?.name}</h2>
               <img
@@ -63,7 +63,7 @@ export default function TodayDetail() {
           </div>
         </div>
 
-        <div className="grid grid-cols-2 lg:w-2/3 w-full gap-5">
+        <div className="grid grid-cols-2 lg:w-2/3 w-full lg:gap-5 gap-3">
           <div className="grid place-items-center rounded-2xl bg-blue-50  w-full py-[50px]">
             <img src={windImg} alt="wind--v1" />
             <h3 className="text-2xl">Wind</h3>
