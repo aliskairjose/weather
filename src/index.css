@@ -30,14 +30,6 @@ h1 {
   line-height: 2.5rem /* 40px */;
 }
 
-h2 {
-  font-size: 1.875rem /* 30px */;
-  line-height: 2.25rem 36px;
-}
-h3 {
-  font-size: 1.5rem /* 24px */;
-  line-height: 2rem /* 32px */;
-}
 
 @media (prefers-color-scheme: light) {
   :root {

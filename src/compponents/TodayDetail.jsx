@@ -26,18 +26,18 @@ export default function TodayDetail() {
       <div className="w-full text-center">
         <h1>Today Weather Details</h1>
         <p className="text-gray-500 w-8/12 mx-auto">
-          The 'Recent Search Weather' section displays the latest weather
+          The `Recent Search Weather` section displays the latest weather
           information for the cities you have recently searched. Stay up-to-date
           with the weather conditions of your preferred cities with this
           section.
         </p>
       </div>
 
-      <div className="flex mt-8 gap-5">
-        <div className="w-1/3">
-          <div className="flex flex-col justify-center gap-8 rounded-2xl bg-blue-50 box-border h-full">
+      <div className="flex lg:flex-row flex-col mt-8 gap-5">
+        <div className="lg:w-1/3 w-full">
+          <div className="flex flex-col md:py-0 pb-4 justify-center gap-8 rounded-2xl bg-blue-50 box-border h-full">
             <div className="flex justify-between place-items-center px-10">
-              <h2 className="font-semibold">{location?.name}</h2>
+              <h2 className="font-semibold md:text-3xl text-xl">{location?.name}</h2>
               <img
                 src={current?.condition.icon}
                 alt={current?.condition.text}
@@ -70,11 +70,11 @@ export default function TodayDetail() {
           </div>
         </div>
 
-        <div className="grid grid-cols-2 w-2/3 gap-5">
+        <div className="grid grid-cols-2 lg:w-2/3 w-full gap-5">
           <div className="grid place-items-center rounded-2xl bg-blue-50  w-full py-[50px]">
             <img src={windImg} alt="wind--v1" />
-            <h3>Wind</h3>
-            <h2>{current?.wind_kph} km/h / {current?.wind_mph} mp/h</h2>
+            <h3 className="text-2xl">Wind</h3>
+            <h2 className="md:text-3xl text-xl">{current?.wind_kph} km/h - {current?.wind_mph} mp/h</h2>
             <span className="text-xl"></span>
           </div>
           <div className="grid place-items-center rounded-2xl bg-blue-50  w-full py-[50px]">
@@ -82,13 +82,13 @@ export default function TodayDetail() {
               src={humidityImg}
               alt="wet"
             />
-            <h3>Humidity</h3>
-            <h2>{current?.humidity}%</h2>
+            <h3 className="text-2xl">Humidity</h3>
+            <h2 className="md:text-3xl text-xl">{current?.humidity}%</h2>
           </div>
           <div className="grid place-items-center rounded-2xl bg-blue-50  w-full py-[50px]">
             <img src={visibilityImg} alt="wind--v1" />
-            <h3>Visibility</h3>
-            <h2>{current?.vis_km} km / {current?.vis_miles} mp</h2>
+            <h3 className="text-2xl">Visibility</h3>
+            <h2 className="md:text-3xl text-xl">{current?.vis_km} km - {current?.vis_miles} mp</h2>
           </div>
           <div className="grid place-items-center rounded-2xl bg-blue-50  w-full py-4">
             <div className="flex justify-evenly w-full px-4 items-center h-full text-sm">
