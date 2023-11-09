@@ -1,7 +1,7 @@
 import Moment from "react-moment";
 import PropTypes from "prop-types";
-import windImg from "../../assets/icons/wind.png";
-import humImag from "../../assets/icons/humidity.png";
+import windImg from "../../assets/icons/weather/fill/svg/wind.svg";
+import humImag from "../../assets/icons/weather/fill/svg/humidity.svg";
 
 export default function SmallCard({ data }) {
   return (
@@ -18,12 +18,12 @@ export default function SmallCard({ data }) {
       <div className="grid place-items-center">
         <div className="flex justify-between divide-x-2 divide-gray-300">
           <div className="flex items-center pe-1">
-            <img src={humImag} alt="wind" className="h-5" />
-            <span>{data?.weather.avghumidity}%</span>
-            <span>{data?.weather.humidity}%</span>
+            <span>{data?.weather.avghumidity}</span>
+            <span>{data?.weather.humidity}</span>%
+            <img src={humImag} alt="wind" className="h-8" />
           </div>
           <div className="flex items-center ps-1">
-            <img src={windImg} alt="wind" className="h-5" />
+            <img src={windImg} alt="wind" className="h-8" />
             <span className="ms-1">
               {data?.weather.maxwind_kph ?? data?.weather.wind_kph}km
             </span>

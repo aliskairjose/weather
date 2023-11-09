@@ -13,7 +13,6 @@ const instance = axios.create({
   },
 });
 
-
 /**
  *
  * @param {string} q Location name, e.g: { q: Caracas }
@@ -21,14 +20,14 @@ const instance = axios.create({
  */
 export const currentWeather = async ({ q = "" }) => {
   return instance
-    .get(`current.json`, { params:{ q } })
+    .get(`current.json`, { params: { q } })
     .then((res) => res.data)
     .catch(console.error);
 };
 
-export const forecastWeather = async ({ q = "", days = 7 }) => {
+export const forecastWeather = async ({ q = "", days = 7, alerts = "no", aqi = 'no' }) => {
   return instance
-    .get(`forecast.json`, { params: { q, days } })
+    .get(`forecast.json`, { params: { q, days, alerts, aqi } })
     .then((res) => res.data)
     .catch(console.error);
 };
