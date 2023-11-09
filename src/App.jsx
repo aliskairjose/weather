@@ -7,6 +7,8 @@ import { forecastWeather } from "./providers/api";
 import Footer from "./compponents/Footer";
 import RecentSearch from "./compponents/RecentSearch";
 
+import { MagnifyingGlassIcon } from "@heroicons/react/24/solid";
+
 export const ForecastContext = createContext();
 
 function App() {
@@ -38,21 +40,26 @@ function App() {
       {!isLoading ? (
         <div className="lg:container mx-auto border shadow-lg min-h-screen p-4">
           <div className="w-full flex justify-end">
-            <form className="flex gap-3">
-              <input
-                type="text"
-                name="name"
-                ref={inputRef}
-                placeholder="Buscar..."
-                className="py-1 px-3 border border-blue-200 rounded-md"
-              />
-              <button
-                className="border rounded-md border-blue-200 px-6 py-1"
-                type="button"
-                onClick={findLocation}
-              >
-                <span className="text-gray-500 font-semibold">Buscar</span>
-              </button>
+            <form className="flex gap-3 w-1/3">
+              <div className="relative mt-2 rounded-md shadow-sm w-full">
+                <input
+                  type="text"
+                  name="search"
+                  id="search"
+                  className="block w-full rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-500 sm:text-sm sm:leading-6"
+                  ref={inputRef}
+                  placeholder="Search for location..."
+                />
+                <div className="absolute inset-y-0 right-0 flex items-center">
+                  <button
+                    className=" px-6 py-1"
+                    type="button"
+                    onClick={findLocation}
+                  >
+                    <MagnifyingGlassIcon className="h-6 text-gray-300" />
+                  </button>
+                </div>
+              </div>
             </form>
           </div>
           <section className="py-10 my-10">
