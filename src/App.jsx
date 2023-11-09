@@ -11,8 +11,9 @@ export const ForecastContext = createContext();
 
 function App() {
   const [data, setData] = useState(null);
-  const [find, setFind] = useState(null)
-  const inputRef = useRef(null)
+  const [find, setFind] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const inputRef = useRef(null);
 
   useEffect(() => {
     const fecthData = async () => {
@@ -20,19 +21,21 @@ function App() {
         const pos = `${position.coords.latitude},${position.coords.longitude}`;
         const res = await forecastWeather({ q: find || pos });
         setData(res);
+        setIsLoading(false);
       });
     };
     fecthData();
   }, [find]);
 
   const findLocation = (event) => {
-      event.preventDefault()
-     setFind(inputRef.current.value)
-  }
+    event.preventDefault();
+    setIsLoading(true);
+    setFind(inputRef.current.value);
+  };
 
   return (
     <ForecastContext.Provider value={data}>
-      {data ? (
+      {!isLoading ? (
         <div className="lg:container mx-auto border shadow-lg min-h-screen p-4">
           <div className="w-full flex justify-end">
             <form className="flex gap-3">
@@ -41,7 +44,7 @@ function App() {
                 name="name"
                 ref={inputRef}
                 placeholder="Buscar..."
-                className="py-1 px-3 border border-gray-300 rounded-md"
+                className="py-1 px-3 border border-blue-200 rounded-md"
               />
               <button
                 className="border rounded-md border-blue-200 px-6 py-1"
@@ -67,7 +70,11 @@ function App() {
           <Footer />
         </div>
       ) : (
-        <p>esperando</p>
+        <div className="w-full h-screen grid place-items-center">
+          <span className="text-2xl font-semibold tracking-widest animate-pulse">
+            Loading...
+          </span>
+        </div>
       )}
     </ForecastContext.Provider>
   );

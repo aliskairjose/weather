@@ -6,6 +6,7 @@ import sunriseImg from "../assets/icons/sunrise.png";
 import humidityImg from "../assets/icons/humidity.png";
 import visibilityImg from "../assets/icons/visibility.png";
 import { ForecastContext } from "../App";
+import Title from "./Title";
 
 export default function TodayDetail() {
   const [location, setLocation] = useState(null);
@@ -23,15 +24,7 @@ export default function TodayDetail() {
 
   return (
     <>
-      <div className="w-full text-center">
-        <h1>Today Weather Details</h1>
-        <p className="text-gray-500 w-8/12 mx-auto">
-          The `Recent Search Weather` section displays the latest weather
-          information for the cities you have recently searched. Stay up-to-date
-          with the weather conditions of your preferred cities with this
-          section.
-        </p>
-      </div>
+      <Title title='Today Weather Details'/>
 
       <div className="flex lg:flex-row flex-col mt-8 gap-5">
         <div className="lg:w-1/3 w-full">

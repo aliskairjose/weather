@@ -18,7 +18,7 @@ export default function Footer() {
             alt=""
           />
         </div>
-        <div>
+        <div className="md:text-base text-sm font-semibold">
           {"Powered by "}
           <a href="https://www.weatherapi.com/" title="Free Weather API">
             WeatherAPI.com
