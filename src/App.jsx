@@ -5,6 +5,7 @@ import TodayDetail from "./compponents/TodayDetail";
 import WeeklyForecast from "./compponents/WeeklyForecast";
 import { forecastWeather } from "./providers/api";
 import Footer from "./compponents/Footer";
+import RecentSearch from "./compponents/RecentSearch";
 
 export const ForecastContext = createContext();
 
@@ -59,6 +60,9 @@ function App() {
           </section>
           <section className="py-10 my-10">
             <HourlyUpdate />
+          </section>
+          <section className="py-10 my-10">
+            <RecentSearch />
           </section>
           <Footer />
         </div>

@@ -27,7 +27,7 @@ export default function Footer() {
         <div className="lg:flex-1 flex-none">
           <div className="border rounded w-fit float-right p-1">
             <a
-              href="https://github.com/aliskairjose/react-movies"
+              href="https://github.com/aliskairjose/weather"
               target="_blank"
               rel="noopener noreferrer"
             >
