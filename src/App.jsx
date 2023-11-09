@@ -38,9 +38,9 @@ function App() {
   return (
     <ForecastContext.Provider value={data}>
       {!isLoading ? (
-        <div className="lg:container mx-auto border shadow-lg min-h-screen p-4">
+        <div className="border shadow-lg min-h-screen p-4 lg:px-10">
           <div className="w-full flex justify-end">
-            <form className="flex gap-3 w-1/3">
+            <form className="flex gap-3 md:w-1/3 w-full">
               <div className="relative mt-2 rounded-md shadow-sm w-full">
                 <input
                   type="text"
