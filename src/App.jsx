@@ -6,8 +6,9 @@ import WeeklyForecast from "./compponents/WeeklyForecast";
 import { forecastWeather } from "./providers/api";
 import Footer from "./compponents/Footer";
 import RecentSearch from "./compponents/RecentSearch";
-
 import { MagnifyingGlassIcon } from "@heroicons/react/24/solid";
+
+import vite from '../public/vite.svg'
 
 export const ForecastContext = createContext();
 
