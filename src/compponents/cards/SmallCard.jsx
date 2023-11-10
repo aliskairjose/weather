@@ -5,7 +5,7 @@ import humImag from "../../assets/icons/weather/fill/svg/humidity.svg";
 
 export default function SmallCard({ data }) {
   return (
-    <div className="grid grid-rows-2 rounded-t-xl bg-gradient-to-b from-blue-50 divide-y-2 divide-gray-300 p-2 w-44 h-72">
+    <div className="grid grid-rows-2 rounded-t-xl bg-gradient-to-b from-sky-50 to-transparent divide-y-2 divide-gray-300 p-2 w-44 h-72">
       <div className="grid place-items-center pb-2">
         <img src={data?.weather.condition.icon} alt="clima" className="h-10" />
         <p className="text-3xl font-semibold">

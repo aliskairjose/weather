@@ -8,8 +8,6 @@ import Footer from "./compponents/Footer";
 import RecentSearch from "./compponents/RecentSearch";
 import { MagnifyingGlassIcon } from "@heroicons/react/24/solid";
 
-import vite from '../public/vite.svg'
-
 export const ForecastContext = createContext();
 
 function App() {
@@ -30,6 +28,12 @@ function App() {
     fecthData();
   }, [find]);
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    setIsLoading(true);
+    setFind(inputRef.current.value);
+  }
+
   const findLocation = (event) => {
     event.preventDefault();
     setIsLoading(true);
@@ -41,7 +45,7 @@ function App() {
       {!isLoading ? (
         <div className="border shadow-lg min-h-screen p-4 lg:px-10">
           <div className="w-full flex justify-end">
-            <form className="flex gap-3 md:w-1/3 w-full">
+            <form className="flex gap-3 md:w-1/3 w-full" onSubmit={handleSubmit}>
               <div className="relative mt-2 rounded-md shadow-sm w-full">
                 <input
                   type="text"
@@ -57,7 +61,7 @@ function App() {
                     type="button"
                     onClick={findLocation}
                   >
-                    <MagnifyingGlassIcon className="h-6 text-gray-300" />
+                    <MagnifyingGlassIcon className="h-6 text-blue-300" />
                   </button>
                 </div>
               </div>

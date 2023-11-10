@@ -32,7 +32,7 @@ export default function TodayDetail() {
 
       <div className="flex lg:flex-row flex-col mt-8 lg:gap-5 gap-3">
         <div className="lg:w-1/3 w-full">
-          <div className="relative flex flex-col lg:py-0 py-6 justify-center gap-8 rounded-2xl bg-blue-50 box-border h-full">
+          <div className="relative flex flex-col lg:py-0 py-6 justify-center gap-8 rounded-2xl bg-sky-50 box-border h-full">
             <img
               src={current?.is_day ? dayImg : nightImg}
               alt=""
@@ -75,26 +75,26 @@ export default function TodayDetail() {
         </div>
 
         <div className="grid grid-cols-2 lg:w-2/3 w-full lg:gap-5 gap-3">
-          <div className="grid place-items-center rounded-2xl bg-blue-50  w-full py-[50px]">
+          <div className="grid place-items-center rounded-2xl bg-sky-50  w-full py-[50px]">
             <img src={windImg} alt="wind--v1" className="h-32 w-32" />
             <h2 className="md:text-3xl text-xl">
               Wind {current?.wind_kph} km/h
             </h2>
             <span className="text-xl"></span>
           </div>
-          <div className="grid place-items-center rounded-2xl bg-blue-50  w-full py-[50px]">
+          <div className="grid place-items-center rounded-2xl bg-sky-50  w-full py-[50px]">
             <img src={humidityImg} alt="humidity" className="h-32 w-32" />
             <h2 className="md:text-3xl text-xl">
               Humidity {current?.humidity}%
             </h2>
           </div>
-          <div className="grid place-items-center rounded-2xl bg-blue-50  w-full py-[50px]">
+          <div className="grid place-items-center rounded-2xl bg-sky-50  w-full py-[50px]">
             <img src={uvImg} alt="visibility" className="h-32 w-32" />
             <h2 className="md:text-3xl text-xl">
               UV {current?.uv}
             </h2>
           </div>
-          <div className=" grid place-items-center rounded-2xl bg-blue-50  w-full py-4">
+          <div className=" grid place-items-center rounded-2xl bg-sky-50  w-full py-4">
             <div className="grid grid-cols-2 w-full px-4 items-center gap-4 text-sm">
               <div className="flex flex-col items-center">
                 <img src={sunriseImg} alt="sunrise" className="h-24 w-24" />
