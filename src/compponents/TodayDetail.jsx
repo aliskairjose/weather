@@ -36,7 +36,7 @@ export default function TodayDetail() {
             <img
               src={current?.is_day ? dayImg : nightImg}
               alt=""
-              className="h-24 absolute top-0 right-0 "
+              className="h-24 absolute top-0 right-0 hidden lg:block"
             />
             <div className="flex justify-between place-items-center px-10">
               <h2 className="font-semibold md:text-3xl text-xl">
