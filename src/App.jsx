@@ -7,7 +7,7 @@ import { forecastWeather } from "./providers/api";
 import Footer from "./compponents/Footer";
 import RecentSearch from "./compponents/RecentSearch";
 import { MagnifyingGlassIcon } from "@heroicons/react/24/solid";
-
+import cloudImg from "./assets/icons/weather/fill/svg/partly-cloudy-day-rain.svg";
 export const ForecastContext = createContext();
 
 function App() {
@@ -32,7 +32,7 @@ function App() {
     event.preventDefault();
     setIsLoading(true);
     setFind(inputRef.current.value);
-  }
+  };
 
   const findLocation = (event) => {
     event.preventDefault();
@@ -40,12 +40,15 @@ function App() {
     setFind(inputRef.current.value);
   };
 
-  return (
-    <ForecastContext.Provider value={data}>
-      {!isLoading ? (
+  if (data && !isLoading)
+    return (
+      <ForecastContext.Provider value={data}>
         <div className="border shadow-lg min-h-screen p-4 lg:px-10">
           <div className="w-full flex justify-end">
-            <form className="flex gap-3 md:w-1/3 w-full" onSubmit={handleSubmit}>
+            <form
+              className="flex gap-3 md:w-1/3 w-full"
+              onSubmit={handleSubmit}
+            >
               <div className="relative mt-2 rounded-md shadow-sm w-full">
                 <input
                   type="text"
@@ -81,14 +84,15 @@ function App() {
           </section>
           <Footer />
         </div>
-      ) : (
-        <div className="w-full h-screen grid place-items-center">
-          <span className="text-2xl font-semibold tracking-widest animate-pulse">
-            Loading...
-          </span>
-        </div>
-      )}
-    </ForecastContext.Provider>
+      </ForecastContext.Provider>
+    );
+  return (
+    <div className="w-full h-screen grid place-items-center">
+      <img src={cloudImg} alt="loading" className="h-40" />
+      <span className="text-2xl font-semibold tracking-widest animate-pulse sr-only">
+        Loading...
+      </span>
+    </div>
   );
 }
 
