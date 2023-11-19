@@ -17,7 +17,7 @@ export default function RecentSearch() {
     <>
       <Title title="Recent Search Weather" />
 
-      <div className="grid grid-flow-col auto-cols-max mt-8 gap-8 overflow-x-auto">
+      <div className="grid grid-flow-col auto-cols-max mt-8 gap-8 overflow-x-auto p-10">
         {items?.map((v, i)=>(
            <RecentCard data={JSON.stringify(v)} key={i}/>
         ))}
