@@ -15,14 +15,24 @@ function App() {
   const [find, setFind] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const inputRef = useRef(null);
+  const [items, setItems] = useState([]);
 
   useEffect(() => {
     const fecthData = async () => {
       navigator.geolocation.getCurrentPosition(async (position) => {
         const pos = `${position.coords.latitude},${position.coords.longitude}`;
         const res = await forecastWeather({ q: find || pos });
+
+        setItems( [...items, {
+          name: res.location.name,
+          icon: res.current.condition.icon,
+          text: res.current.condition.text,
+          temp: res.current.temp_c
+        }])
+
         setData(res);
         setIsLoading(false);
+        localStorage.setItem('items', JSON.stringify(items));
       });
     };
     fecthData();

@@ -15,7 +15,7 @@ export default function HourlyUpdate() {
     <>
       <Title title="Hourly Update"/>
 
-      <div className="grid grid-flow-col grid-cols-auto mt-8 gap-2 overflow-x-auto">
+      <div className="grid grid-flow-col mt-8 gap-2 overflow-x-auto">
         {weather?.map((d, index) => (
           <SmallCard data={{weather:d}} key={index} />
         ))}

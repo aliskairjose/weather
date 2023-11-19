@@ -5,20 +5,22 @@ import RecentCard from "./cards/RecentCard";
 
 export default function RecentSearch() {
   const forecastContext = useContext(ForecastContext);
+  const [items, setItems] = useState([]);
 
-  useEffect(()=>{  
-    const {forescast, location, current} = forecastContext;  
-   
-  },[forecastContext])
+  useEffect(() => {
+    const items = JSON.parse(localStorage.getItem("items"));
+    items && setItems(items);
+
+  }, [forecastContext]);
 
   return (
     <>
-      <Title title="Recent Search Weather"/>
+      <Title title="Recent Search Weather" />
 
-      <div className="grid grid-flow-col grid-cols-auto mt-8 gap-8 overflow-x-auto">
-        {/* {recentsRef.current.map((v, i)=>(
+      <div className="grid grid-flow-col auto-cols-max mt-8 gap-8 overflow-x-auto">
+        {items?.map((v, i)=>(
            <RecentCard data={JSON.stringify(v)} key={i}/>
-        ))} */}
+        ))}
       </div>
     </>
   );
